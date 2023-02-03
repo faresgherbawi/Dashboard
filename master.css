@@ -1,0 +1,420 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@100;300;400;500&display=swap");
+
+:root {
+  --color-primary: #7380ec;
+  --color-danger: #ff7782;
+  --color-success: #41f1b6;
+  --color-white: #fff;
+  --color-info-dark: #7d8da1;
+  --color-info-light: #dce1eb;
+  --color-dark: #363949;
+  --color-dark-vareint: #677483;
+  --color-light: rgba(132, 139, 200, 0.18);
+  --color-background: #f6f6f9;
+  --color-pending: #ffc107;
+
+  --box-shadow: 0 2rem 3rem var(--color-light);
+}
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: poppins, sans-serif;
+  background: var(--color-background);
+  overflow: hidden;
+  /* background: red; */
+}
+
+.container {
+  display: grid;
+  width: 96%;
+  margin: 0 auto;
+  gap: 40px;
+  grid-template-columns: 16rem auto 23rem;
+}
+
+aside {
+  background: var(--color-background);
+  height: 100vh;
+}
+aside .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+aside .logo {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+aside .logo img {
+  width: 2rem;
+  height: 2rem;
+}
+aside .top .close {
+  display: none;
+}
+aside .top .logo h2 {
+  padding-left: 10px;
+}
+
+/* ===================START SIDEBAR============== */
+
+aside .sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 86vh;
+  position: relative;
+  top: 3rem;
+}
+aside h3 {
+  font-weight: 500;
+}
+.sidebar a {
+  display: flex;
+  color: var(--color-info-dark);
+  margin-left: 2rem;
+  gap: 1rem;
+  align-items: center;
+  position: relative;
+  height: 3.7rem;
+  transition: all 300ms ease;
+}
+.sidebar a span {
+  font-size: 28px;
+  transition: all 0.3s ease;
+}
+.sidebar a:last-child {
+  position: absolute;
+  bottom: 2rem;
+  width: 100%;
+}
+.sidebar a.active {
+  background: var(--color-light);
+  color: var(--color-primary);
+  margin-left: 0;
+}
+.sidebar a.active::before {
+  content: "";
+  width: 6px;
+  height: 100%;
+  background: var(--color-primary);
+}
+.sidebar a.active span {
+  color: var(--color-primary);
+  margin-left: calc(1rem - 3px);
+}
+.sidebar a:hover {
+  color: var(--color-primary);
+}
+.sidebar a:hover span {
+  margin-left: 10px;
+}
+.sidebar a span.message-count {
+  background-color: var(--color-danger);
+  color: white;
+  border-radius: 4px;
+  padding: 2px 10px;
+  font-size: 11px;
+}
+/* ===================End SIDEBAR============== */
+
+/* ================Start Main Section============ */
+main {
+  margin-top: 25px;
+}
+main .date {
+  display: inline-block;
+  background: var(--color-light);
+  border-radius: 4px;
+  margin-top: 16px;
+  padding: 8px 25px;
+}
+main .date input[type="date"] {
+  background: transparent;
+  color: var(--color-dark);
+}
+main .insight {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+main .insight > div {
+  background: white;
+  margin-top: 16px;
+  padding: 1.8rem;
+  border-radius: 32px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2rem 3rem var(--color-light);
+}
+main .insight > div:hover {
+  box-shadow: none;
+}
+main .insight > div span {
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  padding: 8px;
+  color: white;
+  font-size: 32px;
+}
+main .insight > div span.expenses {
+  background: var(--color-danger);
+}
+main .insight > div span.income {
+  background: var(--color-success);
+}
+main .insight > div .middle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+main .insight h3 {
+  margin: 16px 0 7px;
+  font-size: 16px;
+}
+
+main .insight .progress {
+  position: relative;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+}
+main .insight svg {
+  width: 7rem;
+  height: 7rem;
+}
+main .insight svg circle {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 14;
+  stroke-linecap: round;
+  transform: translate(5px, 5px);
+}
+main .insight .sales svg circle {
+  stroke-dasharray: 200;
+  stroke-dashoffset: -30;
+}
+main .insight .expensess svg circle {
+  stroke-dasharray: 80;
+  stroke-dashoffset: 20;
+}
+main .insight .income svg circle {
+  stroke-dasharray: 110;
+  stroke-dashoffset: 35;
+}
+main .insight .progress {
+  align-items: center;
+}
+
+main .insight .progress .number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .insight .left {
+  padding-right: 40px;
+}
+main .insight h6 {
+  margin-top: 28px;
+  color: gray;
+  font-weight: 100;
+  font-size: 12px;
+}
+/* ================End Main Section============ */
+
+/* Start Recent order */
+main .recent-order {
+  margin-top: 32px;
+}
+.recent-order h2 {
+  margin-bottom: 14px;
+}
+main .recent-order table {
+  background: white;
+  width: 100%;
+  padding: 1.8rem;
+  border-radius: 32px;
+  text-align: center;
+  box-shadow: 0 2rem 3rem var(--color-light);
+  transition: all 0.3s ea;
+}
+main .recent-order table:hover {
+  box-shadow: none;
+}
+main table tbody td {
+  height: 40px;
+  border-bottom: 1px solid var(--color-light);
+  color: var(--color-dark-vareint);
+}
+main table tbody tr:last-child td {
+  border: none;
+}
+.text-muted {
+  text-align: center;
+  display: block;
+  margin: 16px auto;
+  color: var(--color-primary);
+}
+main table tbody td.warning {
+  color: var(--color-pending);
+}
+main table tbody td.primary {
+  color: var(--color-primary);
+  cursor: pointer;
+}
+main table tbody td.declined {
+  color: var(--color-danger);
+}
+/* End Recent order */
+
+/* =========================Start Right Section============== */
+.right {
+  margin-top: 25px;
+}
+.right img {
+  width: 35px;
+  border-radius: 50%;
+}
+.right .top {
+  display: flex;
+  justify-content: end;
+  gap: 32px;
+  margin-bottom: 10px;
+  /* background: gray; */
+}
+button {
+  display: none;
+}
+.theme-toggler {
+  background: var(--color-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 25px;
+  width: 4.2rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.theme-toggler span {
+  font-size: 20px;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.theme-toggler span.active {
+  background: var(--color-primary);
+  color: white;
+  border-radius: 4px;
+}
+.profile {
+  /* display: flex; */
+  gap: 32px;
+  text-align: right;
+}
+.profile small {
+  color: var(--color-primary);
+}
+.recent-update .updates {
+  margin-top: 26px;
+  background: white;
+  padding: 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2rem 3rem var(--color-light);
+}
+.recent-update h2 {
+  margin-bottom: 16px;
+}
+.recent-update .update {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.recent-update .update .info span {
+  color: var(--color-dark-vareint);
+  font-size: 12px;
+}
+
+/* Start Sales Analytic*/
+.sales-analytics {
+  margin-top: 32px;
+}
+.sales-analytics h2 {
+  margin-bottom: 16px;
+}
+.sales-analytics .layer {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 14px;
+  background: white;
+  padding: 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease 0s;
+  box-shadow: 0 2rem 3rem var(--color-light);
+}
+.sales-analytics .layer .info {
+  /* display: flex; */
+}
+.sales-analytics .layer span {
+  display: flex;
+  align-items: center;
+  background: var(--color-primary);
+  border-radius: 50%;
+  padding: 10px;
+  color: white;
+}
+.sales-analytics .layer .number {
+  display: flex;
+  justify-content: right;
+  gap: 20px;
+}
+.sales-analytics .layer .number .sucess {
+  font-weight: bold;
+  color: var(--color-success);
+}
+.sales-analytics .layer span.sucess {
+  background: var(--color-success);
+}
+.sales-analytics .layer .number .danger {
+  font-weight: bold;
+  color: var(--color-danger);
+}
+.sales-analytics .layer span.danger {
+  background: var(--color-danger);
+}
+.sales-analytics .layer .number .regular {
+  font-weight: bold;
+}
+.sales-analytics .layer:last-child {
+  display: flex;
+  gap: 0px;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-primary);
+  color: white;
+}
+/* End Sales Analytic*/
+/* =========================End Right Section============== */
